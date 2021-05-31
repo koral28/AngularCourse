@@ -1,0 +1,23 @@
+<div class="title-area">
+  <app-title caption="Pop Quiz"></app-title>
+</div>
+<div class="main-area">
+  <div *ngIf="gameIsOver === true">
+    <app-quiz-done [score]="score"></app-quiz-done>
+  </div>
+  <div *ngIf="gameIsOver === false">
+    <app-current-question
+      [currentQuestion]="currentQuestion"
+      (selection)="selectOption($event)"
+      (answerIsCorrect)="answerIsCorrect($event)"
+      (userScore)="userScore($event)"
+    ></app-current-question>
+  </div>
+</div>
+<div class="summary-area">
+  <app-history-component
+    [historyArray]="historyArray"
+    [currentQuestion]="currentQuestion"
+    [isCorrect]="isCorrect"
+  ></app-history-component>
+</div>

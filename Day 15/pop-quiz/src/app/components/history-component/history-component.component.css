@@ -1,0 +1,16 @@
+div{
+    margin: 10px;
+}
+
+/* .wrongAnswer{
+    border: 2px solid red;
+    padding: 20px;
+}
+.correctAnswer{
+    border: 2px solid green;
+    padding: 20px;
+} */
+
+li{
+    list-style: none;
+}

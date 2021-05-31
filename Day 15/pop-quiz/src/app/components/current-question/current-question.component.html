@@ -1,0 +1,11 @@
+<div class="currentQuestion">
+  <h2>{{ currentQuestion.caption }}</h2>
+  <ol class="answers">
+    <li
+      *ngFor="let item of currentQuestion.answers; let i = index"
+      (click)="selectOption(item, i)"
+    >
+      {{ item }}
+    </li>
+  </ol>
+</div>

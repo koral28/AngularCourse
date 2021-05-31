@@ -1,0 +1,22 @@
+.title-area {
+    grid-column: 1 / -1;
+} 
+
+:host {
+    display: grid;
+    grid-template-rows: 100px 1fr ;
+    grid-template-columns: auto 300px ;
+ }
+
+div {
+    margin: 4px;
+}
+
+.main-area{
+    background-color:lightgray;
+}
+
+.summary-area{
+    background-color:rgb(168, 204, 226);
+}
+

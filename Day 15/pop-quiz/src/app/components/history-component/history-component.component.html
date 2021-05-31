@@ -1,0 +1,11 @@
+<div>
+  <div *ngFor="let item of historyArray; let i = index">
+    <li
+      [ngStyle]="{
+        border: isCorrect[i] === true ? '2px solid green' : '2px solid red'
+      }"
+    >
+      {{ item.caption }} {{ item.answers[item.userAnswer] }}
+    </li>
+  </div>
+</div>

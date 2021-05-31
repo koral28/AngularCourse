@@ -1,0 +1,12 @@
+h2{
+    text-align: center;
+}
+
+.answers{
+    list-style-type:decimal;
+    cursor: pointer;
+}
+
+.currentQuestion{
+    padding: 150px
+}
