@@ -1,0 +1,8 @@
+<h1>Search</h1>
+<input #txtNum (input)="onValueChange(txtNum.value)" />
+
+<div>
+  <ul>
+    <li *ngFor="let i of result$ | async">{{ i }}</li>
+  </ul>
+</div>
