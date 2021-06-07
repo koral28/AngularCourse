@@ -1,0 +1,54 @@
+:host {
+    display: grid;
+    grid-template-rows: 50px 30px 240px 1fr;
+}
+
+.title{
+    background-color: rgb(8, 106, 139);
+    text-align: center;
+    padding: 7px;
+    color: white;
+}
+
+.linkes{
+    background-color: rgb(209, 233, 243);
+    display: flex;
+}
+
+.link{
+    padding: 5px;
+    cursor: pointer;
+}
+
+.link:hover  {
+    background-color: rgb(33, 33, 97);
+    color: white;
+}
+
+.home{
+    margin-top: 20px;
+    background-color: rgb(73, 190, 190);
+    padding: 50px;
+    color: white;
+    text-align: center;
+}
+
+button{
+    margin: 8px;
+    color: rgb(0, 119, 255); 
+}
+
+.total{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.total-li{
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+.total-li button{
+    cursor: auto;
+}

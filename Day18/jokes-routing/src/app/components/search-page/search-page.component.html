@@ -1,0 +1,11 @@
+<p>search-page works!</p>
+<input #movieId type="text" />
+<button (click)="search(movieId.value)">GO!</button>
+
+<!-- only one subscribe (async) only one query -->
+<!-- all this code doesnt exsist when i dont have a movie -->
+<ng-container *ngIf="joke$ | async as joke">
+  <h3>{{ joke.type }}</h3>
+  <p>{{ joke.setup }}</p>
+  <h2>{{ joke.punchline }}</h2>
+</ng-container>
