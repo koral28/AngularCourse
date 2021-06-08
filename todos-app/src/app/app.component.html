@@ -3,40 +3,9 @@
 </div>
 
 <div class="linkes">
-  <div class="link">Home</div>
-  <div class="link">Lists</div>
-  <div class="link">Items</div>
+  <a href="home" class="link">Home</a>
+  <a href="lists" class="link">Lists</a>
+  <a href="items" class="link">Items</a>
 </div>
 
-<div class="home">
-  <h1>Todo App</h1>
-  <h2>by Koral Levi</h2>
-  <h3>07/06/21</h3>
-  <button mat-raised-button="accent">create new list</button>
-  <button mat-raised-button="accent">view all lists</button>
-  <button mat-raised-button="accent">view all items</button>
-</div>
-
-<div class="total">
-  <div class="total-li">
-    <button style="background: none" mat-icon-button>
-      <mat-icon>list</mat-icon>
-    </button>
-    <h1>2</h1>
-    <h4>Lists</h4>
-  </div>
-  <div class="total-li">
-    <button style="background: none" mat-icon-button>
-      <mat-icon>done_all</mat-icon>
-    </button>
-    <h1>3</h1>
-    <h4>Todo Items</h4>
-  </div>
-  <div class="total-li">
-    <button style="background: none" mat-icon-button>
-      <mat-icon>hourglass_empty</mat-icon>
-    </button>
-    <h1>2</h1>
-    <h4>Active Items</h4>
-  </div>
-</div>
+<router-outlet></router-outlet>

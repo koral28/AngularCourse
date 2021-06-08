@@ -1,0 +1,28 @@
+<div class="card">
+  <form
+    #userInput="ngForm"
+    class="container"
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmit(userInput.value)"
+  >
+    <label>Caption:</label>
+    <div class="form-row">
+      <input type="text" name="caption" />
+    </div>
+    <label>Description:</label>
+    <div class="form-row">
+      <textarea></textarea>
+    </div>
+    <label>Icon:</label>
+    <div class="form-row">
+      <select></select>
+    </div>
+    <label>Color:</label>
+    <div class="form-row">
+      <select></select>
+    </div>
+    <div class="form-row">
+      <button type="submit" mat-raised-button>save</button>
+    </div>
+  </form>
+</div>
