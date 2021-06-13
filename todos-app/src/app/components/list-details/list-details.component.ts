@@ -9,4 +9,5 @@ export class ListDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  addItem(): void {}
 }
