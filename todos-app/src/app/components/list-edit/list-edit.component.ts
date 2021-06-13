@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MatIcon } from '@angular/material/icon'
 
 @Component({
@@ -13,10 +13,10 @@ export class ListEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
-      Caption: '',
-      Description: '',
-      Icon: '',
-      Color: '',
+      Caption: ['', [Validators.required]],
+      Description: ['', [Validators.required, Validators.minLength(3)]],
+      Icon: ['', [Validators.required]],
+      Color: ['', [Validators.required]],
     })
   }
   iconsName: string[] = ['work', 'shopping']
@@ -29,6 +29,8 @@ export class ListEditComponent implements OnInit {
     'yellow',
     'orange',
   ]
+
+  icons: string[] = ['work', 'shopping_cart', 'stars', 'phone', 'flagged']
   onSubmit(value: string) {
     console.log(value)
   }

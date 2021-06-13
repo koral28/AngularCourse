@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-list-details',
@@ -6,8 +7,20 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./list-details.component.css'],
 })
 export class ListDetailsComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
+  items: string[] = ['Tomatos', 'Milk', 'Bread', 'Sugar']
 
   ngOnInit(): void {}
-  addItem(): void {}
+  createNewList(): void {
+    this.router.navigate(['lists', 'id', 'edit'])
+  }
+  EditList(): void {
+    this.router.navigate(['lists', 'id', 'edit'])
+  }
+  DeleteList(): void {
+    //delete
+  }
+  addItem(newItem: string): void {
+    this.items.push(newItem)
+  }
 }

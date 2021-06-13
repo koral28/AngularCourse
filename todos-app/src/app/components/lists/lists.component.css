@@ -19,7 +19,7 @@ h4{
     width: 150px;
 }
 
-.btn :hover{
+button :hover{
     cursor: pointer;
     color: rgb(44, 10, 240);
 }

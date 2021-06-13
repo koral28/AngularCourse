@@ -13,4 +13,10 @@ export class HomeComponent implements OnInit {
   createNewList(): void {
     this.router.navigate(['lists', 'id', 'edit'])
   }
+  viewLists(): void {
+    this.router.navigate(['lists'])
+  }
+  viewItems(): void {
+    this.router.navigate(['items'])
+  }
 }

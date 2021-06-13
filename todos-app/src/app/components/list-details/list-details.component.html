@@ -1,1 +1,30 @@
-<p>list-details works!</p>
+<h4>Lists > Shopping</h4>
+<div class="details">
+  <div class="icon">
+    <button style="color: rgb(243, 147, 163)" mat-icon-button>
+      <mat-icon class="icon-large">shopping_cart</mat-icon>
+    </button>
+  </div>
+  <div class="btn">
+    <h3>Things to buy on our next stop to the supermarket</h3>
+    <button (click)="createNewList()" mat-raised-button="accent">
+      New List...
+    </button>
+    <button (click)="EditList()" mat-raised-button="accent">Edit...</button>
+    <button (click)="DeleteList()" mat-raised-button="accent">Delete</button>
+  </div>
+</div>
+
+<div class="items">
+  <ul #list *ngFor="let item of items">
+    <li>
+      <input class="item" type="checkbox" /><label>{{ item }}</label>
+    </li>
+  </ul>
+  <li>
+    <input class="item" type="checkbox" /><input #newItem type="text" />
+    <button (click)="addItem(newItem.value)" mat-icon-button>
+      <mat-icon class="add item">add</mat-icon>
+    </button>
+  </li>
+</div>
