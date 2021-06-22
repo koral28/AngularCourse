@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { List } from 'src/app/models/list.model'
+import { DataService } from 'src/app/services/data.service'
 
 @Component({
   selector: 'app-lists',
@@ -7,14 +9,17 @@ import { Router } from '@angular/router'
   styleUrls: ['./lists.component.css'],
 })
 export class ListsComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private data: DataService) {}
+  lists: List[] = []
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.data.getLists().subscribe((data) => (this.lists = data))
+  }
 
   createNewList(): void {
     this.router.navigate(['lists', 'id', 'edit'])
   }
-  showListDetails(): void {
+  showListDetails(item: List): void {
     this.router.navigate(['lists', 'id'])
   }
 }

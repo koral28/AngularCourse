@@ -9,6 +9,7 @@
       <mat-label>Caption</mat-label>
       <input formControlName="Caption" matInput />
     </mat-form-field>
+
     <span
       *ngIf="
         (myForm.get('Caption')?.invalid && myForm.get('Caption')?.touched) ||

@@ -18,21 +18,21 @@
     <button style="background: none" mat-icon-button>
       <mat-icon>list</mat-icon>
     </button>
-    <h1>2</h1>
+    <h1>{{ numberOfLists$ | async }}</h1>
     <h4>Lists</h4>
   </div>
   <div class="total-li">
     <button mat-icon-button>
       <mat-icon>done_all</mat-icon>
     </button>
-    <h1>3</h1>
+    <h1>{{ countItems }}</h1>
     <h4>Todo Items</h4>
   </div>
   <div class="total-li">
     <button style="background: none" mat-icon-button>
       <mat-icon>hourglass_empty</mat-icon>
     </button>
-    <h1>2</h1>
+    <h1>0</h1>
     <h4>Active Items</h4>
   </div>
 </div>

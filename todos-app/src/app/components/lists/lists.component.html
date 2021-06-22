@@ -1,65 +1,15 @@
 <h4>Lists</h4>
 <div class="icons">
-  <div class="btn">
-    <button
-      (click)="showListDetails()"
-      style="color: rgb(243, 147, 163)"
-      mat-icon-button
-    >
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-    <h1>Shopping</h1>
-  </div>
-  <div class="btn">
-    <button
-      (click)="showListDetails()"
-      style="color: rgb(159, 152, 255)"
-      mat-icon-button
-    >
-      <mat-icon>work</mat-icon>
-    </button>
-    <h1>Work</h1>
-  </div>
-  <div class="btn">
-    <button
-      (click)="showListDetails()"
-      style="color: rgb(9, 184, 38)"
-      mat-icon-button
-    >
-      <mat-icon>stars</mat-icon>
-    </button>
-    <h1>fun</h1>
-  </div>
-</div>
-<div class="icons">
-  <div class="btn">
-    <button
-      (click)="showListDetails()"
-      style="color: rgb(233, 5, 221)"
-      mat-icon-button
-    >
-      <mat-icon>event</mat-icon>
-    </button>
-    <h1>Events</h1>
-  </div>
-  <div class="btn">
-    <button
-      (click)="showListDetails()"
-      style="color: rgb(241, 179, 6)"
-      mat-icon-button
-    >
-      <mat-icon>flagged</mat-icon>
-    </button>
-    <h1>Flagged</h1>
-  </div>
-  <div class="btn">
-    <button
-      (click)="createNewList()"
-      style="color: rgb(11, 175, 175)"
-      mat-icon-button
-    >
-      <mat-icon>add</mat-icon>
-    </button>
-    <h1>New...</h1>
-  </div>
+  <span *ngFor="let i of lists">
+    <div class="btn">
+      <button
+        (click)="showListDetails(i)"
+        [ngStyle]="{ color: i.Color }"
+        mat-icon-button
+      >
+        <mat-icon>{{ i.Icon }}</mat-icon>
+      </button>
+      <h1>{{ i.Caption }}</h1>
+    </div>
+  </span>
 </div>

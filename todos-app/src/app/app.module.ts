@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { HttpClientModule } from '@angular/common/http'
 //form
 import { MatSelectModule } from '@angular/material/select'
 import { MatInputModule } from '@angular/material/input'
@@ -43,6 +44,7 @@ import { from } from 'rxjs'
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

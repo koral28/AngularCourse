@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MatIcon } from '@angular/material/icon'
+import { Router } from '@angular/router'
+import { List } from 'src/app/models/list.model'
+import { DataService } from 'src/app/services/data.service'
 
 @Component({
   selector: 'app-list-edit',
@@ -10,7 +13,11 @@ import { MatIcon } from '@angular/material/icon'
 export class ListEditComponent implements OnInit {
   myForm!: FormGroup
   food!: object
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private data: DataService,
+    private router: Router,
+  ) {}
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
       Caption: ['', [Validators.required]],
@@ -31,7 +38,13 @@ export class ListEditComponent implements OnInit {
   ]
 
   icons: string[] = ['work', 'shopping_cart', 'stars', 'phone', 'flagged']
-  onSubmit(value: string) {
-    console.log(value)
+  onSubmit(list: List) {
+    console.log(list)
+    this.data.addList(list).subscribe(
+      (data: List) => {
+        this.router.navigate(['lists'])
+      },
+      (err: any) => console.log(err),
+    )
   }
 }

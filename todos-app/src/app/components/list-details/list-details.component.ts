@@ -8,7 +8,13 @@ import { Router } from '@angular/router'
 })
 export class ListDetailsComponent implements OnInit {
   constructor(private router: Router) {}
-  items: string[] = ['Tomatos', 'Milk', 'Bread', 'Sugar']
+  chosenList = {
+    Caption: 'Shopping',
+    Description: 'Things to buy on our next stop to the supermarket',
+    Icon: 'shopping_cart',
+    Color: 'pink',
+    Items: ['Tomatos', 'Milk', 'Bread', 'Sugar'],
+  }
 
   ngOnInit(): void {}
   createNewList(): void {
@@ -21,6 +27,6 @@ export class ListDetailsComponent implements OnInit {
     //delete
   }
   addItem(newItem: string): void {
-    this.items.push(newItem)
+    this.chosenList.Items.push(newItem)
   }
 }

@@ -1,3 +1,6 @@
+:host{
+    width: 40%;
+}
 h4{
     padding: 10px;
     color: rgb(118, 118, 238);
@@ -5,7 +8,8 @@ h4{
 
 .icons{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
     margin-top: -20px;
     margin-bottom: 30px;
 }
