@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { map } from 'rxjs/operators'
 import { DataService } from 'src/app/services/data.service'
 
 @Component({
@@ -7,12 +8,11 @@ import { DataService } from 'src/app/services/data.service'
   styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent implements OnInit {
-  items$!: Promise<string[][]>
+  itemsNotCompleted$!: Promise<{}[]>
+  itemsCompleted$!: Promise<{}[]>
   constructor(private data: DataService) {}
-
-  // items: string[] = []
-
   ngOnInit(): void {
-    this.items$ = this.data.getItemsOfList()
+    this.itemsNotCompleted$ = this.data.getActiveItemsOfList()
+    this.itemsCompleted$ = this.data.getNotActiveItemsOfList()
   }
 }

@@ -11,25 +11,23 @@ import { DataService } from 'src/app/services/data.service'
 export class HomeComponent implements OnInit {
   numberOfLists$!: Promise<Number>
   todoItems$!: Promise<Number[]>
+  itemsCompleted$!: Promise<Number[]>
+  countActiveItems: number = 0
   countItems: number = 0
   constructor(private router: Router, private data: DataService) {}
 
   ngOnInit(): void {
+    this.itemsCompleted$ = this.data.getNumberOfActiveItems()
+    this.itemsCompleted$.then((data) =>
+      data.forEach((element) => {
+        this.countActiveItems += +element
+      }),
+    )
     this.numberOfLists$ = this.data.getNumberOfLists()
     this.data.getNumberOfItems().then((data) =>
       data.forEach((element) => {
         this.countItems += +element
       }),
     )
-  }
-
-  createNewList(): void {
-    this.router.navigate(['lists', 'id', 'edit'])
-  }
-  viewLists(): void {
-    this.router.navigate(['lists'])
-  }
-  viewItems(): void {
-    this.router.navigate(['items'])
   }
 }

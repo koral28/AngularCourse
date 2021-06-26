@@ -7,7 +7,7 @@
   >
     <mat-form-field>
       <mat-label>Caption</mat-label>
-      <input formControlName="Caption" matInput />
+      <input matInput placeholder="Name" formControlName="Caption" matInput />
     </mat-form-field>
 
     <span
@@ -48,8 +48,16 @@
           myForm.get('Description')?.touched
         "
       >
-        Description must contains at least 30 characters
+        Description must contains at least 10 characters
       </span>
+      <div
+        *ngIf="
+          myForm.get('Description')?.invalid &&
+          myForm.get('Description')?.touched
+        "
+      >
+        Description must contains at least 3 words
+      </div>
     </span>
     <mat-form-field>
       <mat-label>Icons</mat-label>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
+import { List } from 'src/app/models/list.model'
+import { DataService } from 'src/app/services/data.service'
 
 @Component({
   selector: 'app-list-details',
@@ -7,26 +9,68 @@ import { Router } from '@angular/router'
   styleUrls: ['./list-details.component.css'],
 })
 export class ListDetailsComponent implements OnInit {
-  constructor(private router: Router) {}
-  chosenList = {
-    Caption: 'Shopping',
-    Description: 'Things to buy on our next stop to the supermarket',
-    Icon: 'shopping_cart',
-    Color: 'pink',
-    Items: ['Tomatos', 'Milk', 'Bread', 'Sugar'],
-  }
-
-  ngOnInit(): void {}
-  createNewList(): void {
-    this.router.navigate(['lists', 'id', 'edit'])
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private data: DataService,
+  ) {}
+  chosenList$!: List
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const listId = params.get('id')!
+      if (listId) {
+        this.data.getListById(listId).then((data) => {
+          this.chosenList$ = data
+          // console.log(this.chosenList$.Items)
+          // for (const [key, value] of Object.entries(this.chosenList$.Items)) {
+          //   console.log(`${value.item}`)
+          // }
+        })
+      }
+    })
   }
   EditList(): void {
-    this.router.navigate(['lists', 'id', 'edit'])
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const listId = params.get('id')!
+      this.router.navigate(['lists', listId, 'edit'])
+    })
   }
   DeleteList(): void {
-    //delete
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const listId = params.get('id')!
+      if (listId) {
+        this.data.deleteList(listId).then((data) => {
+          console.log('deleted:' + data)
+        })
+      }
+    })
+    this.router.navigate(['lists'])
+  }
+  change(item: any, value: any) {
+    item.completed = !item.completed
+    const newItemToAdd = {
+      item: item,
+      completed: item.completed,
+    }
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const listId = params.get('id')!
+      if (listId) {
+        this.data.addItems(listId, this.chosenList$)
+      }
+    })
   }
   addItem(newItem: string): void {
-    this.chosenList.Items.push(newItem)
+    const newItemToAdd = {
+      item: newItem,
+      completed: false,
+    }
+    this.chosenList$.Items.push(newItemToAdd)
+    //add items to list in db
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const listId = params.get('id')!
+      if (listId) {
+        this.data.addItems(listId, this.chosenList$)
+      }
+    })
   }
 }

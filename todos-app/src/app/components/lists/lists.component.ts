@@ -13,13 +13,8 @@ export class ListsComponent implements OnInit {
   lists: List[] = []
 
   ngOnInit(): void {
-    this.data.getLists().subscribe((data) => (this.lists = data))
-  }
-
-  createNewList(): void {
-    this.router.navigate(['lists', 'id', 'edit'])
-  }
-  showListDetails(item: List): void {
-    this.router.navigate(['lists', 'id'])
+    this.data.getLists().subscribe((data) => {
+      this.lists = data
+    })
   }
 }

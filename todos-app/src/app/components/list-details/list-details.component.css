@@ -28,7 +28,7 @@ h4{
 }
 
 .items{
-  margin-left: 10px;
+  margin:20px
 }
 
 .item{
@@ -41,4 +41,12 @@ li{
     display: flex;
     align-items:center;
 }
+.done{
+    text-decoration: line-through;
+    
+}
+
+input:checked {
+    text-decoration: line-through;
+  }
 

@@ -18,7 +18,7 @@ const ListSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    Items: [String],
+    Items: [{}],
   }
   //   { timestamps: true }
 );

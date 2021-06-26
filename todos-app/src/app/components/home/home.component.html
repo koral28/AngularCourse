@@ -2,13 +2,13 @@
   <h1>Todo App</h1>
   <h2>by Koral Levi</h2>
   <h3>07/06/21</h3>
-  <button (click)="createNewList()" mat-raised-button="accent">
+  <button [routerLink]="['/lists/1/edit']" mat-raised-button="accent">
     create new list
   </button>
-  <button (click)="viewLists()" mat-raised-button="accent">
+  <button [routerLink]="['/lists']" mat-raised-button="accent">
     view all lists
   </button>
-  <button (click)="viewItems()" mat-raised-button="accent">
+  <button [routerLink]="['/items']" mat-raised-button="accent">
     view all items
   </button>
 </div>
@@ -32,7 +32,7 @@
     <button style="background: none" mat-icon-button>
       <mat-icon>hourglass_empty</mat-icon>
     </button>
-    <h1>0</h1>
+    <h1>{{ countActiveItems }}</h1>
     <h4>Active Items</h4>
   </div>
 </div>

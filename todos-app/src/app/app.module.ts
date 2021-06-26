@@ -20,8 +20,9 @@ import { ItemsComponent } from './components/items/items.component'
 import { ListDetailsComponent } from './components/list-details/list-details.component'
 import { ListEditComponent } from './components/list-edit/list-edit.component'
 import { IllegalPathComponent } from './components/illegal-path/illegal-path.component'
-import { from } from 'rxjs'
 
+//core module
+import { CoreModule } from './core/core.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { from } from 'rxjs'
     IllegalPathComponent,
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     MatIconModule,

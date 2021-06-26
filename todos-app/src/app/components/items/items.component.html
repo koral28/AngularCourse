@@ -1,8 +1,13 @@
 <h4>Active Items</h4>
-<ul *ngFor="let item of items$ | async">
-  <span *ngFor="let i of item">
-    <li>
-      <input type="checkbox" /><label for="scales">{{ i }}</label>
-    </li>
-  </span>
+<ul *ngFor="let item of itemsNotCompleted$ | async">
+  <div *ngFor="let i of item | keyvalue">
+    {{ i.value }}
+  </div>
+</ul>
+
+<h4>Not Active Items</h4>
+<ul *ngFor="let item of itemsCompleted$ | async">
+  <div *ngFor="let i of item | keyvalue">
+    {{ i.value }}
+  </div>
 </ul>

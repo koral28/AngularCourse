@@ -31,6 +31,16 @@ router.route("/").post(async (req, res) => {
   }
 });
 
+router.route("/:id").get(async (req, resp) => {
+  List.findById({ _id: req.params.id }, function (err, list) {
+    if (err) {
+      return resp.send(err);
+    } else {
+      return resp.json(list);
+    }
+  });
+});
+
 router.route("/:id").put(async (req, resp) => {
   let updates = req.body;
   List.findOneAndUpdate({ _id: req.params.id }, updates, { new: true })

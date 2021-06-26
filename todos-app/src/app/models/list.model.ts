@@ -1,8 +1,8 @@
 export interface List {
-  Id: number
+  _id: string
   Caption: string
   Description: string
   Icon: string
   Color: string
-  Items: string[]
+  Items: { item: string; completed: boolean }[]
 }
