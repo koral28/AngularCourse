@@ -1,5 +1,6 @@
 :host{
-    background-size:cover;
-    background-position:100% 100%;
+    padding: 380px;
+    background-size:auto;
+    background-position:center;
     background-image:url('https://wpdaddy.com/wp-content/uploads/2017/04/Best-Coming-Soon-and-404-Error-Page-Templates-for-Your-Unique-Websites.jpg');
 }

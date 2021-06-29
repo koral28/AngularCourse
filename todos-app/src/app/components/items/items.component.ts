@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { map } from 'rxjs/operators'
-import { DataService } from 'src/app/services/data.service'
+import { DataService } from 'src/app/core/services/data.service'
 
 @Component({
   selector: 'app-items',

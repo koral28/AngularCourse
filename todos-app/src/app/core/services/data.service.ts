@@ -1,9 +1,8 @@
-import { Injectable, resolveForwardRef } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { List } from '../models/list.model'
-import { catchError, filter, map, switchMap } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs'
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes'
 
 @Injectable({
   providedIn: 'root',
@@ -14,18 +13,21 @@ export class DataService {
 
   getLists(): Observable<List[]> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
 
     return this.http.get<List[]>(url)
   }
 
   getListById(listId: string): Promise<List> {
     const url = `${this.baseUrl}/api/lists/${listId}`
+    // const url = `api/lists/${listId}`
 
     return this.http.get<List>(url).toPromise()
   }
 
   getNumberOfLists(): Promise<Number> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
 
     return this.http
       .get<List[]>(url)
@@ -35,6 +37,7 @@ export class DataService {
 
   getActiveItemsOfList(): Promise<{}[]> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
     return this.http
       .get<List[]>(url)
       .pipe(
@@ -49,6 +52,7 @@ export class DataService {
 
   getNotActiveItemsOfList(): Promise<{}[]> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
     return this.http
       .get<List[]>(url)
       .pipe(
@@ -63,6 +67,7 @@ export class DataService {
 
   getNumberOfItems(): Promise<Number[]> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
 
     return this.http
       .get<List[]>(url)
@@ -71,6 +76,7 @@ export class DataService {
   }
   getNumberOfActiveItems(): Promise<Number[]> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
     return this.http
       .get<List[]>(url)
       .pipe(
@@ -83,6 +89,7 @@ export class DataService {
 
   addList(list: List): Observable<List> {
     const url = `${this.baseUrl}/api/lists`
+    // const url = `api/lists`
 
     return this.http.post<List>(url, list, {
       headers: new HttpHeaders({
@@ -93,6 +100,7 @@ export class DataService {
 
   addItems(listId: string, list: List): Promise<List> {
     const url = `${this.baseUrl}/api/lists/${listId}`
+    // const url = `api/lists/${listId}`
 
     return this.http
       .put<List>(url, list, {
@@ -105,6 +113,7 @@ export class DataService {
 
   deleteList(listId: string): Promise<List> {
     const url = `${this.baseUrl}/api/lists/${listId}`
+    // const url = `api/lists/${listId}`
 
     return this.http.delete<List>(url).toPromise()
   }

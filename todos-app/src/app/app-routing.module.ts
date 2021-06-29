@@ -7,6 +7,7 @@ import { ListEditComponent } from './components/list-edit/list-edit.component'
 import { ItemsComponent } from './components/items/items.component'
 import { IllegalPathComponent } from './components/illegal-path/illegal-path.component'
 import { DisplayListGuard } from './guards/display-list.guard'
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },

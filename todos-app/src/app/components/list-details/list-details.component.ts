@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { List } from 'src/app/models/list.model'
-import { DataService } from 'src/app/services/data.service'
+import { List } from 'src/app/core/models/list.model'
+import { DataService } from 'src/app/core/services/data.service'
 
 @Component({
   selector: 'app-list-details',
@@ -21,10 +21,6 @@ export class ListDetailsComponent implements OnInit {
       if (listId) {
         this.data.getListById(listId).then((data) => {
           this.chosenList$ = data
-          // console.log(this.chosenList$.Items)
-          // for (const [key, value] of Object.entries(this.chosenList$.Items)) {
-          //   console.log(`${value.item}`)
-          // }
         })
       }
     })

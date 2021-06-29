@@ -5,10 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms'
-// import { MatIcon } from '@angular/material/icon'
 import { ActivatedRoute, Router } from '@angular/router'
-import { List } from 'src/app/models/list.model'
-import { DataService } from 'src/app/services/data.service'
+import { List } from 'src/app/core/models/list.model'
+import { DataService } from 'src/app/core/services/data.service'
 
 @Component({
   selector: 'app-list-edit',

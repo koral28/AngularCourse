@@ -6,7 +6,7 @@ import {
   UrlTree,
 } from '@angular/router'
 import { Observable } from 'rxjs'
-import { ListGuardService } from '../services/list-guard.service'
+import { ListGuardService } from '../core/services/list-guard.service'
 
 @Injectable({
   providedIn: 'root',
